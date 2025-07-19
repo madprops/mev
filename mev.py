@@ -152,6 +152,7 @@ class TextToVideoGenerator:
         for word in words:
             # Estimate visual width of the word
             word_width = 0
+
             for char in word:
                 # Count emojis and wide characters as taking more space
                 if unicodedata.category(char) == 'So':  # Symbol, other (includes many emojis)
@@ -418,11 +419,11 @@ def main():
         description="Convert text files to video with readable, centered text frames (with emoji support)",
         epilog="""
 Examples:
-  python3 anser.py text.txt                           # Basic usage
-  python3 anser.py text.txt -o video.mp4              # Custom output name
-  python3 anser.py text.txt --font-size 48            # Larger text
-  python3 anser.py text.txt --keep-emojis             # Keep original emojis (may not display)
-  python3 anser.py text.txt --duration 3              # 3 seconds per frame
+  python3 mev.py text.txt                           # Basic usage
+  python3 mev.py text.txt -o video.mp4              # Custom output name
+  python3 mev.py text.txt --font-size 48            # Larger text
+  python3 mev.py text.txt --keep-emojis             # Keep original emojis (may not display)
+  python3 mev.py text.txt --duration 3              # 3 seconds per frame
 
 Note: By default, emojis are converted to text descriptions like [wave], [smile] etc.
 for better compatibility with video output. Use --keep-emojis to preserve original emojis.
@@ -504,11 +505,13 @@ for better compatibility with video output. Use --keep-emojis to preserve origin
 
     # Create output directory if it doesn't exist
     output_dir = os.path.dirname(os.path.abspath(args.output))
+
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
     # Create the generator and process the file
     convert_emojis = not args.keep_emojis  # If keep_emojis is True, don't convert
+
     generator = TextToVideoGenerator(
         font_size=args.font_size,
         width=args.width,
