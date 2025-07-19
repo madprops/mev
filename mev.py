@@ -465,7 +465,7 @@ for better compatibility with video output. Use --keep-emojis to preserve origin
     parser.add_argument(
         "--duration",
         type=int,
-        default=3,
+        default=4,
         help="Duration of each frame in seconds (default: 2)"
     )
 

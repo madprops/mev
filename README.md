@@ -6,7 +6,7 @@ A Python script that converts text files into video content with readable, cente
 
 - Automatically splits text into readable frames
 - Customizable font size, video dimensions, and colors
-- Each frame displays for 3 seconds (configurable)
+- Each frame displays for 4 seconds (configurable)
 - Text is centered and properly formatted
 - No text cramming - ensures readability
 - Uses FFmpeg for high-quality video generation
