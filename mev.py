@@ -377,7 +377,7 @@ class TextToVideoGenerator:
         """
         print(f"Reading text from: {text_file_path}")
         text_content = self.read_text_file(text_file_path)
-        text_content = "".join(char if char.isalnum() or char.isspace() or char in ["?", "!"] else " " for char in text_content)
+        text_content = "".join(char if char.isalnum() or char.isspace() or char in ["?", "!", "'"] else " " for char in text_content)
         text_content = text_content.strip()
 
         print("Splitting text into frames...")
